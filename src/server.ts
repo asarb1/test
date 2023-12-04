@@ -8,9 +8,17 @@ app.use(cors({
   origin:["http://localhost:4200"]
 }));
 
-app.get("/api/home", (req, res) => {
+app.get("/api/portofoliu", (req, res) => {
   res.send(listaPortofolii);
 });
+
+app.get("/api/portofoliu/:portofoliuId", (req, res) => {
+  const portofoliuId = req.params.portofoliuId;
+  const portofoliu = listaPortofolii.find(portofoliu => portofoliu.id === portofoliuId);
+  res.send(portofoliu);
+});
+
+
 
 const port = 5000;
 app.listen(port, () => {
