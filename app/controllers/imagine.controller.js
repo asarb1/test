@@ -49,3 +49,19 @@ exports.delete = (req, res) => {
       });
     });
 };
+
+exports.findOne = (req, res) => {
+  const id = req.params.id;
+
+  Imagine.findById(id)
+    .then(data => {
+      if (!data)
+        res.status(404).send({ message: "Not found Imagine with id " + id });
+      else res.send(data);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .send({ message: "Error retrieving Imagine with id=" + id });
+    });
+};

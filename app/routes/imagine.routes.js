@@ -4,6 +4,7 @@ module.exports = app => {
 
   router.post("/edit:id", imagine.create);
   router.delete("edit/:id", imagine.delete);
+  router.get("edit/:id", imagine.findOne);
 
   app.use('/api/imagine', router);
 };

@@ -4,6 +4,6 @@ module.exports = app => {
 
   router.post("/admin", portofoliu.create);
   router.delete("admin", portofoliu.delete);
-
+  router.get("admin", portofoliu.findOne);
   app.use('/api/portofoliu', router);
 };
