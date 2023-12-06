@@ -5,9 +5,13 @@ const mongoose = require('mongoose');
 const findOrCreate = require("mongoose-find-or-create");
 const bcrypt = require('bcrypt');
 const cors = require('cors');
+const session = require('express-session');
+const passport = require("passport");
+const passportLocalMongoose = require("passport-local-mongoose");
 var corsOptions = {
   origin: "http://localhost:4200"
 };
+const app = express();
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.static("public"));
@@ -26,7 +30,7 @@ mongoose.set("strictQuery", true);
 
 var db = mongoose.connect("mongodb+srv://andreeasarb96:andreeasarb21072018@cluster0.61szlim.mongodb.net/Portofolii");
 const portofoliuSchema = new mongoose.Schema({
-  id: Integer,
+  id: Number,
   imagine: String,
   titlu: String,
   descriere: String,
@@ -36,7 +40,7 @@ const portofoliuSchema = new mongoose.Schema({
 const Portofoliu = mongoose.model("Portofoliu", portofoliuSchema);
 
 const imagineSchema = new mongoose.Schema({
-  id: Integer,
+  id: Number,
   src: String,
   alt: String
 });
@@ -143,7 +147,7 @@ app.delete("/edit:id", function(req, res){
 });
 });
 
-const PORT = process.env.PORT || 4200;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
