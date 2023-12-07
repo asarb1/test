@@ -31,7 +31,7 @@ db.mongoose
   });
 require("./app/routes/home.routes")(app);
 require("./app/routes/user.routes")(app);
-require("./app/routes/login.routes")(app);
+//require("./app/routes/login.routes")(app);
 require("./app/routes/admin.routes")(app);
 require("./app/routes/edit.routes")(app);
 // set port, listen for requests
