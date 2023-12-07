@@ -66,3 +66,16 @@ exports.findOne = (req, res) => {
         .send({ message: "Error retrieving Portofoliu with id=" + id });
     });
 };
+
+exports.findAllPublished = (req, res) => {
+  Portofoliu.find({ published: true })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving portofolios."
+      });
+    });
+};

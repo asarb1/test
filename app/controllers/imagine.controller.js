@@ -65,3 +65,16 @@ exports.findOne = (req, res) => {
         .send({ message: "Error retrieving Imagine with id=" + id });
     });
 };
+
+exports.findAllPublished = (req, res) => {
+  Imagine.find({ published: true })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving images."
+      });
+    });
+};
