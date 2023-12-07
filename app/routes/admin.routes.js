@@ -6,6 +6,5 @@ module.exports = app => {
   router.delete("/", portofoliu.delete);
   router.get("/", portofoliu.findOne);
   router.get("/", portofoliu.findAllPublished);
-  router.get("/", portofoliu.findAllPublished);
-  app.use('/api/portofoliu', router);
+  app.use('/api/admin', router);
 };
