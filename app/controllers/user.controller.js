@@ -13,8 +13,8 @@ exports.create = (req, res) => {
       email: req.body.email,
       parola: hash
     });
+});
 
-  // Save Tutorial in the database
   user
     .save(user)
     .then(data => {

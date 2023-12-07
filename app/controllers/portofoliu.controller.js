@@ -15,7 +15,7 @@ exports.create = (req, res) => {
     link: req.body.link
   });
 
-  // Save Tutorial in the database
+
   portofoliu
     .save(portofoliu)
     .then(data => {
